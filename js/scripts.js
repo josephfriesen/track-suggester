@@ -166,25 +166,24 @@ $(document).ready(function() {
     var q4response = $("input:radio[name=question-4]:checked").val();
     var q5response = $("input:radio[name=question-5]:checked").val();
     var qResponseArray = [q1response, q2response, q3response, q4response, q5response];
+    console.log(qResponseArray);
 
     /* Print user's first name in each of the three output sections */
 
     $(".name-here").text(firstName);
 
-    /* Determine the frequency with which the user selected each of the 3 options */
+    /*
+
+    =-=-=-=-=-=-=  OLD  =-=-=-=-=-=-=-=
 
     var option1count = responseCount(qResponseArray, "option-1");
     var option2count = responseCount(qResponseArray, "option-2");
     var option3count = responseCount(qResponseArray, "option-3");
 
-    /* Determine which option was selected most of the 3 */
-
     var option1Array = ["option 1", option1count];
     var option2Array = ["option 2", option2count];
     var option3Array = ["option 3", option3count];
     var theWinnerIs = determineDominantResponse(option1Array, option2Array, option3Array);
-
-    /* Determine which output section to display based on the determination of which answer was selected most often in the above */
 
     var outputDisplay = "";
     var secondaryDisplay = "";
@@ -205,6 +204,30 @@ $(document).ready(function() {
       secondaryDisplay = "csharp";
     } else {
       secondaryDisplay = "none"
+    };
+
+    =-=-=-=-=-=-=  OLD  =-=-=-=-=-=-=-=
+
+    */
+
+    var theWinnerIs = pickTwo(qResponseArray);
+    var outputDisplay;
+    var secondaryDisplay;
+    if (theWinnerIs[0] === "option-1") {
+      outputDisplay = "rails";
+    } else if (theWinnerIs[0] === "option-2") {
+      outputDisplay = "react";
+    } else if (theWinnerIs[0] === "option-3") {
+      outputDisplay = "csharp";
+    };
+    if (theWinnerIs[1] === "option-1") {
+      secondaryDisplay = "rails";
+    } else if (theWinnerIs[1] === "option-2") {
+      secondaryDisplay = "react";
+    } else if (theWinnerIs[1] === "option-3") {
+      secondaryDisplay = "csharp";
+    } else {
+      secondaryDisplay = "none";
     };
 
     if (outputDisplay === "rails") {
