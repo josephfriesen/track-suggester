@@ -20,15 +20,16 @@ var responseCount = function(stringArray, stringToFind) {
   return count;
 };
 
-var coinFlip = function() {
-  return Math.floor(Math.random() * 2);
+/* Helper function, returns a random integer from 0 to n-1. */
+var coinFlip = function(n) {
+  return Math.floor(Math.random() * n);
 }
 
 /*
 Given 3 arrays of type array = [option(i), responseCount(i)], where option(i) is the string "option i" and responseCount(i) is the result of calling the above function for the ith option, determineDominantReponse will return the array with the largest responseCount, or, in the case where two options have equally many responses, will chose one option at random as the dominant response and the other repsonse as secondary.
 */
 var determineDominantResponse = function(array1, array2, array3) {
-  var rand = coinFlip();
+  var rand = coinFlip(2);
   if (array1[1] >= 3) {
     return [array1[0], "none"];
   } else if (array2[1] >= 3) {
@@ -54,6 +55,55 @@ var determineDominantResponse = function(array1, array2, array3) {
       return [array3[0], array2[0]];
     };
   };
+};
+
+
+
+
+/* NEW STUFF?? */
+
+/* Given an array with possibly duplicated entries, will create a new array with duplicates removed -- in other words, each (possibly duplicated) entry of the input array will appear exactly once in the output array.
+  Ex: let var array = ["1", "2", "2", "3"].
+    Then createUniqueArray(array) will return the array ["1", "2", "3"]. */
+var createUniqueArray = function(array) {
+  var n;
+  var m;
+  var unique;
+  var uniqueArray = [];
+  for (n = 0; n < array.length; n++) {
+    currentItem = array[n];
+    unique = 1;
+    for (m = 0; m < uniqueArray.length; m++) {
+      if (currentItem === uniqueArray[m]) {
+        unique = 0;
+      };
+    };
+    if (unique == 1) {
+      uniqueArray.push(currentItem);
+    };
+  };
+  return uniqueArray;
+};
+
+/* Given an array and its blah blah bllah */
+var createFrequencyArray = function(array) {
+  var n;
+  var m;
+  var count;
+  var currentItem;
+  var freqArray = [];
+  var uniqueArray = createUniqueArray(array);
+  for ( n = 0; n < uniqueArray.length; n++ ) {
+    currentItem = uniqueArray[n];
+    count = 0;
+    for ( m = 0; m < array.length; m++ ) {
+      if (currentItem === array[m]) {
+        count = count + 1;
+      }
+    };
+    freqArray[n] = count;
+  };
+  return freqArray;
 };
 
 
