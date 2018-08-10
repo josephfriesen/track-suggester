@@ -62,7 +62,7 @@ var determineDominantResponse = function(array1, array2, array3) {
 
 /* NEW STUFF?? */
 
-/* Given an array with possibly duplicated entries, will create a new array with duplicates removed -- in other words, each (possibly duplicated) entry of the input array will appear exactly once in the output array.
+/* Given an array with possibly duplicated entries, will return a new array with duplicates removed -- in other words, each (possibly duplicated) entry of the input array will appear exactly once in the output array.
   Ex: let var array = ["1", "2", "2", "3"].
     Then createUniqueArray(array) will return the array ["1", "2", "3"]. */
 var createUniqueArray = function(array) {
@@ -85,14 +85,15 @@ var createUniqueArray = function(array) {
   return uniqueArray;
 };
 
-/* Given an array and its blah blah bllah */
+/* Given an array, returns an array that lists the number of times each unique entry in that array appears in the array. To be used in tandem with function createUniqueArray, i.e. the frequency with which the ith entry in the array returned by createUniqueArray appears in the given array is given by the ith entry in the array returned by createFrequencyArray.
+  Ex. let hi = ["1", "2", "2", "4"]. Call unique = createUniqueArray(hi) = ["1", "2", "4"]. Then createFrequencyArray(hi) = [1, 2, 1], meaning "1" appears in hi once, "2" appears in hi twice, and "4" appears in hi once. */
 var createFrequencyArray = function(array) {
   var n;
   var m;
   var count;
   var currentItem;
-  var freqArray = [];
   var uniqueArray = createUniqueArray(array);
+  var freqArray = [];
   for ( n = 0; n < uniqueArray.length; n++ ) {
     currentItem = uniqueArray[n];
     count = 0;
@@ -105,6 +106,30 @@ var createFrequencyArray = function(array) {
   };
   return freqArray;
 };
+
+/* Given an array, returns an array listing those elements which appear with the greatest frequency; an array with a single element if one element appears in the given array more than any other, an array with multiple elements if more than one element appear with the maximal frequency.
+  Ex. let hi = ["1", "2", "2", "3", "5", "1"]. Then collectMaxElements(hi) returns the array ["1", "2"], "1" and "2" having both appeared twice in the given array, more frequently than the other elements. */
+var collectMaxElements = function(array) {
+  var uniqueArray = createUniqueArray(array);
+  var frequencyArray = createFrequencyArray(array);
+  var max = Math.max(...frequencyArray);
+  var n;
+  var maxValuesArray = [];
+  for (n = 0; n < uniqueArray.length; n++) {
+    if (frequencyArray[n] == max) {
+      maxValuesArray.push(uniqueArray[n]);
+    };
+  };
+  return maxValuesArray;
+};
+
+/*  */
+var pickTwo = function(array) {
+
+}
+
+
+
 
 
 /* User interface logic */
