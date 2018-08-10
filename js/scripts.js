@@ -29,6 +29,7 @@ var coinFlip = function() {
 Given 3 arrays of type array = [option(i), responseCount(i)], where option(i) is the string "option i" and responseCount(i) is the result of calling the above function for the ith option, determineDominantReponse will return the array with the largest responseCount, or, in the case where two options have equally many responses, will chose one option at random as the dominant response and the other repsonse as secondary.
 */
 var determineDominantResponse = function(array1, array2, array3) {
+  var rand = coinFlip();
   if (array1[1] >= 3) {
     return [array1[0], "none"];
   } else if (array2[1] >= 3) {
@@ -36,8 +37,24 @@ var determineDominantResponse = function(array1, array2, array3) {
   } else if (array3[1] >= 3) {
     return [array3[0], "none"];
   } else if (array1[1] === 2 && array2[1] === 2) {
-
-  }
+    if (rand === 0) {
+      return [array1[0], array2[0]];
+    } else {
+      return [array2[0], array1[0]];
+    };
+  } else if (array1[1] === 2 && array3[1] === 2) {
+    if (rand === 0) {
+      return [array1[0], array3[0]];
+    } else {
+      return [array3[0], array1[0]];
+    };
+  } else if (array2[1] === 2 && array3[1] === 2) {
+    if (rand === 0) {
+      return [array2[0], array3[0]];
+    } else {
+      return [array3[0], array2[0]];
+    };
+  };
 };
 
 
