@@ -25,7 +25,18 @@
   border-style: solid;
 }
 
+.output p {
+  text-align: justify;
+  margin: 0 auto;
+  width: 80%;
+}
+
 figcaption {
   text-align: center;
   font-size: 10pt;
+}
+
+.term {
+  font-style: bold;
+  font-size: 18pt;
 }
