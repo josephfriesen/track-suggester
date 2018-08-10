@@ -74,6 +74,10 @@ $(document).ready(function() {
     var q5response = $("input:radio[name=question-5]:checked").val();
     var qResponseArray = [q1response, q2response, q3response, q4response, q5response];
 
+    /* Print user's first name in each of the three output sections */
+
+    $(".name-here").text(firstName);
+
     /* Determine the frequency with which the user selected each of the 3 options */
 
     var option1count = responseCount(qResponseArray, "option-1");
@@ -86,7 +90,6 @@ $(document).ready(function() {
     var option2Array = ["option 2", option2count];
     var option3Array = ["option 3", option3count];
     var theWinnerIs = determineDominantResponse(option1Array, option2Array, option3Array);
-    console.log("the variable 'theWinnerIs' is now = ", theWinnerIs)
 
     /* Determine which output section to display based on the determination of which answer was selected most often in the above */
 
@@ -110,9 +113,6 @@ $(document).ready(function() {
     } else {
       secondaryDisplay = "none"
     };
-
-    console.log("The variable outputDisplay is now = ",outputDisplay);
-    console.log("The variable secondaryDisplay is now = ",secondaryDisplay);
 
     if (outputDisplay === "rails") {
       $("#rails").show();
