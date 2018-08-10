@@ -115,35 +115,35 @@ $(document).ready(function() {
     };
 
     if (outputDisplay === "rails") {
-      $("#rails").show();
-      $("#react").hide();
-      $("#csharp").hide();
+      $("#rails").slideDown();
+      $("#react").slideUp();
+      $("#csharp").slideUp();
     } else if (outputDisplay === "react") {
-      $("#rails").hide();
-      $("#react").show();
-      $("#csharp").hide();
+      $("#rails").slideUp();
+      $("#react").slideDown();
+      $("#csharp").slideUp();
     } else if (outputDisplay === "csharp") {
-      $("#rails").hide();
-      $("#react").hide();
-      $("#csharp").show();
+      $("#rails").slideUp();
+      $("#react").slideUp();
+      $("#csharp").slideDown();
     };
 
     if (secondaryDisplay === "rails") {
-      $("#rails-secondary").show();
-      $("#react-secondary").hide();
-      $("#csharp-secondary").hide();
+      $("#rails-secondary").slideDown();
+      $("#react-secondary").slideUp();
+      $("#csharp-secondary").slideUp();
     } else if (secondaryDisplay === "react") {
-      $("#rails-secondary").hide();
-      $("#react-secondary").show();
-      $("#csharp-secondary").hide();
+      $("#rails-secondary").slideUp();
+      $("#react-secondary").slideDown();
+      $("#csharp-secondary").slideUp();
     } else if (secondaryDisplay === "csharp") {
-      $("#rails-secondary").hide();
-      $("#react-secondary").hide();
-      $("#csharp-secondary").show();
+      $("#rails-secondary").slideUp();
+      $("#react-secondary").slideUp();
+      $("#csharp-secondary").slideDown();
     } else if (secondaryDisplay === "none") {
-      $("#rails-secondary").hide();
-      $("#react-secondary").hide();
-      $("#csharp-secondary").hide();
+      $("#rails-secondary").slideUp();
+      $("#react-secondary").slideUp();
+      $("#csharp-secondary").slideUp();
     };
 
 
