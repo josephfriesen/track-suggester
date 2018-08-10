@@ -94,6 +94,7 @@ $(document).ready(function() {
     var secondaryDisplay = "";
     if (theWinnerIs[0] === "option 1") {
       outputDisplay = "rails";
+
     } else if (theWinnerIs[0] === "option 2") {
       outputDisplay = "react";
     } else if (theWinnerIs[0] === "option 3") {
@@ -112,5 +113,21 @@ $(document).ready(function() {
 
     console.log("The variable outputDisplay is now = ",outputDisplay);
     console.log("The variable secondaryDisplay is now = ",secondaryDisplay);
+
+    if (outputDisplay === "rails") {
+      $("#rails").show();
+      $("#react").hide();
+      $("#csharp").hide();
+    } else if (outputDisplay === "react") {
+      $("#rails").hide();
+      $("#react").show();
+      $("#csharp").hide();
+    } else if (outputDisplay === "csharp") {
+      $("#rails").hide();
+      $("#react").hide();
+      $("#csharp").show();
+    };
+
+
   });
 });
