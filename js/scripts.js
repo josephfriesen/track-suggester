@@ -123,30 +123,8 @@ var collectMaxElements = function(array) {
   return maxValuesArray;
 };
 
-/* Helper function used below. Given an array and a position i, 0 <= i <= array.length - 1, returns an array equivalent to the original array with the element in the ith position deleted.
-*/
-var throwOneOut = function(array, i) {
-  var len = array.length;
-  var result = [];
-  var count;
-  if (i = 0) {
-    result = array.shift();
-  } else if (i = len-1) {
-    result = array.pop();
-  } else {
-    for (count=0; count < i; count++) {
-      result = result.push(array[count]);
-      console.log(result);
-    };
-    for (count=i+1; count < len; count++) {
-      result = result.push(array[count]);
-      console.log(result);
-    };
-  };
-  return result;
-};
-
-/*  */
+/* Given an array, will return a two element array consisting of two randomly chosen maximally occuring elements of that array (or, if only one element appears maximally, will return an array with that element in the first position and the string "none" in the second position).
+  Ex: let hi = ["1", "2", "2", "3", "3", "4", "4"]. then pickTwo(hi) will return an array of two elements randomly chosen from the elements "2", "3", "4", such as ["2", "4"] or ["4", "3"].*/
 var pickTwo = function(array) {
   var uniqueArray = createUniqueArray(array);
   var frequencyArray = createFrequencyArray(array);
