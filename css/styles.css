@@ -1,3 +1,14 @@
+body {
+  /* The following code block, which adds the background color gradient to the page, was generated from the site https://www.colorzilla.com/gradient-editor */
+
+  background: #c5deea; /* Old browsers */
+  background: -moz-linear-gradient(top, #c5deea 0%, #8abbd7 31%, #066dab 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #c5deea 0%,#8abbd7 31%,#066dab 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c5deea+0,8abbd7+31,066dab+100;Web+2.0+Blue+3D+%231 */
+}
+
 #page-header {
   background-color: lightcyan;
   border-color: #16ad80;
