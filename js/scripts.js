@@ -157,12 +157,13 @@ var pickTwo = function(array) {
     result = [maxElements[0], "none"];
   } else {
     firstChoice = coinFlip(len);
-    result = result.push(maxElements[firstChoice]);
+    firstChoiceElement = maxElements[firstChoice];
     secondChoice = coinFlip(len);
     while (firstChoice == secondChoice) {
       secondChoice = coinFlip(len);
     };
-    result = result.push(maxElements[secondChoice]);
+    secondChoiceElement = maxElements[secondChoice];
+    result = [firstChoiceElement, secondChoiceElement];
   };
   return result;
 };
