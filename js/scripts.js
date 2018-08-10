@@ -17,7 +17,6 @@ var responseCount = function(stringArray, stringToFind) {
     }
     n = n + 1;
   };
-  console.log(count);
   return count;
 };
 
@@ -64,6 +63,8 @@ $(document).ready(function() {
   $("form#questionnaire").submit(function(event) {
     event.preventDefault();
 
+    /* Get values supplied by user in form and store as variables */
+
     var firstName = $("#first-name").val();
     var lastName = $("#last-name").val();
     var q1response = $("input:radio[name=question-1]:checked").val();
@@ -73,6 +74,43 @@ $(document).ready(function() {
     var q5response = $("input:radio[name=question-5]:checked").val();
     var qResponseArray = [q1response, q2response, q3response, q4response, q5response];
 
-    console.log(firstName, lastName, q1response, q2response, q3response, q4response, q5response, qResponseArray);
+    /* Determine the frequency with which the user selected each of the 3 options */
+
+    var option1count = responseCount(qResponseArray, "option-1");
+    var option2count = responseCount(qResponseArray, "option-2");
+    var option3count = responseCount(qResponseArray, "option-3");
+
+    /* Determine which option was selected most of the 3 */
+
+    var option1Array = ["option 1", option1count];
+    var option2Array = ["option 2", option2count];
+    var option3Array = ["option 3", option3count];
+    var theWinnerIs = determineDominantResponse(option1Array, option2Array, option3Array);
+    console.log("the variable 'theWinnerIs' is now = ", theWinnerIs)
+
+    /* Determine which output section to display based on the determination of which answer was selected most often in the above */
+
+    var outputDisplay = "";
+    var secondaryDisplay = "";
+    if (theWinnerIs[0] === "option 1") {
+      outputDisplay = "rails";
+    } else if (theWinnerIs[0] === "option 2") {
+      outputDisplay = "react";
+    } else if (theWinnerIs[0] === "option 3") {
+      outputDisplay = "csharp";
+    };
+
+    if (theWinnerIs[1] === "option 1") {
+      secondaryDisplay = "rails";
+    } else if (theWinnerIs[1] === "option 2") {
+      secondaryDisplay = "react";
+    } else if (theWinnerIs[1] === "option 3") {
+      secondaryDisplay = "csharp";
+    } else {
+      secondaryDisplay = "none"
+    };
+
+    console.log("The variable outputDisplay is now = ",outputDisplay);
+    console.log("The variable secondaryDisplay is now = ",secondaryDisplay);
   });
 });
