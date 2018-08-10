@@ -21,11 +21,43 @@
         <div class="col-md-6" id="questionnaire-col">
           <h2>Questionnaire</h2>
           <hr>
-          <ul>
-            <li>blah</li>
-            <li>blah</li>
-            <li>blah</li>
-          </ul>
+          <form id="questionnaire">
+
+            <div class="form-group">
+              <label for="first-name">Please enter your first name:</label>
+              <input id="first-name" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+              <label for="last-name">Last name:</label>
+              <input id="last-name" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+              <label for="question-1">Question 1:</label>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="question-1" value="option-1" checked>
+                  Option 1
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="question-1" value="option-2" checked>
+                  Option 2
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="question-1" value="option-3" checked>
+                  Option 3
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn text-white> bg-primary">Submit</button>
+          </form>
+          <br>
         </div>
 
         <div class="col-md-6" id="response-col">
