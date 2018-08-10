@@ -4,6 +4,12 @@
   border-style: solid;
 }
 
+#page-header img {
+  border-color: #16ad80;
+  border-style: solid;
+  width: 100%;
+}
+
 .col-md-6 {
   background-color: #edf3fc;
   border-color: #16ad80;
