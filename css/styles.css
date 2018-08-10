@@ -1,3 +1,19 @@
 #page-header {
   background-color: lightcyan;
+  border-color: #16ad80;
+  border-style: solid;
+}
+
+.col-md-6 {
+  background-color: #edf3fc;
+  border-color: #16ad80;
+  border-style: solid;
+}
+
+#questionnaire-col {
+
+}
+
+#response-col {
+
 }
