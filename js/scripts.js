@@ -128,6 +128,24 @@ $(document).ready(function() {
       $("#csharp").show();
     };
 
+    if (secondaryDisplay === "rails") {
+      $("#rails-secondary").show();
+      $("#react-secondary").hide();
+      $("#csharp-secondary").hide();
+    } else if (secondaryDisplay === "react") {
+      $("#rails-secondary").hide();
+      $("#react-secondary").show();
+      $("#csharp-secondary").hide();
+    } else if (secondaryDisplay === "csharp") {
+      $("#rails-secondary").hide();
+      $("#react-secondary").hide();
+      $("#csharp-secondary").show();
+    } else if (secondaryDisplay === "none") {
+      $("#rails-secondary").hide();
+      $("#react-secondary").hide();
+      $("#csharp-secondary").hide();
+    };
+
 
   });
 });

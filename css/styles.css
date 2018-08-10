@@ -31,6 +31,19 @@
   width: 80%;
 }
 
+.output-secondary {
+  display: none;
+}
+
+.output-secondary p {
+  padding: 12px;
+  font-size: 8pt;
+  font-style: italic;
+  text-align: justify;
+  margin: 0 auto;
+  width: 60%;
+}
+
 figcaption {
   text-align: center;
   font-size: 10pt;
@@ -39,4 +52,9 @@ figcaption {
 .term {
   font-style: bolder;
   font-size: 18pt;
+}
+
+.term-small {
+  font-style: bolder;
+  font-size: 12pt;
 }
