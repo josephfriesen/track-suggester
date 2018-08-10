@@ -123,10 +123,49 @@ var collectMaxElements = function(array) {
   return maxValuesArray;
 };
 
+/* Helper function used below. Given an array and a position i, 0 <= i <= array.length - 1, returns an array equivalent to the original array with the element in the ith position deleted.
+*/
+var throwOneOut = function(array, i) {
+  var len = array.length;
+  var result = [];
+  var count;
+  if (i = 0) {
+    result = array.shift();
+  } else if (i = len-1) {
+    result = array.pop();
+  } else {
+    for (count=0; count < i; count++) {
+      result = result.push(array[count]);
+      console.log(result);
+    };
+    for (count=i+1; count < len; count++) {
+      result = result.push(array[count]);
+      console.log(result);
+    };
+  };
+  return result;
+};
+
 /*  */
 var pickTwo = function(array) {
-
-}
+  var uniqueArray = createUniqueArray(array);
+  var frequencyArray = createFrequencyArray(array);
+  var maxElements = collectMaxElements(array);
+  var len = maxElements.length;
+  var result = [];
+  if (len == 1) {
+    result = [maxElements[0], "none"];
+  } else {
+    firstChoice = coinFlip(len);
+    result = result.push(maxElements[firstChoice]);
+    secondChoice = coinFlip(len);
+    while (firstChoice == secondChoice) {
+      secondChoice = coinFlip(len);
+    };
+    result = result.push(maxElements[secondChoice]);
+  };
+  return result;
+};
 
 
 
