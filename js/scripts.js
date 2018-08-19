@@ -5,7 +5,7 @@ Given an array of strings stringArray and a single string stringToFind, the func
   Ex: let array = ["hi", "hello", "hi"]
           str = "hi"
           responseCount(array, str) will return 2.
-Below, we will call this function on the variable qResponseArray three times to determine how many times the user selected option-1, option-2, and option-3 in the questionnaire.
+Below, we will call this function on the variable userResponseArray three times to determine how many times the user selected rails, react, and cSharp in the questionnaire.
 */
 var responseCount = function(stringArray, stringToFind) {
   var len = stringArray.length;
@@ -60,7 +60,7 @@ var determineDominantResponse = function(array1, array2, array3) {
 
 
 
-/* NEW STUFF?? */
+/* NEW STUFF */
 
 /* Given an array with possibly duplicated entries, will return a new array with duplicates removed -- in other words, each (possibly duplicated) entry of the input array will appear exactly once in the output array.
   Ex: let var array = ["1", "2", "2", "3"].
@@ -160,71 +160,33 @@ $(document).ready(function() {
 
     var firstName = $("#first-name").val();
     var lastName = $("#last-name").val();
-    var q1response = $("input:radio[name=question-1]:checked").val();
-    var q2response = $("input:radio[name=question-2]:checked").val();
-    var q3response = $("input:radio[name=question-3]:checked").val();
-    var q4response = $("input:radio[name=question-4]:checked").val();
-    var q5response = $("input:radio[name=question-5]:checked").val();
-    var qResponseArray = [q1response, q2response, q3response, q4response, q5response];
-    console.log(qResponseArray);
+    var workTypeResponse = $("input:radio[name=work-type-question]:checked").val();
+    var companyTypeResponse = $("input:radio[name=company-type-question]:checked").val();
+    var experienceResponse = $("input:radio[name=experience-question]:checked").val();
+    var coolestNameResponse = $("input:radio[name=coolest-name-question]:checked").val();
+    var petPrefResponse = $("input:radio[name=pet-pref-question]:checked").val();
+    var userResponseArray = [workTypeResponse, companyTypeResponse, experienceResponse, coolestNameResponse, petPrefResponse];
 
     /* Print user's first name in each of the three output sections */
 
     $(".name-here").text(firstName);
 
-    /*
 
-    =-=-=-=-=-=-=  OLD  =-=-=-=-=-=-=-=
-
-    var option1count = responseCount(qResponseArray, "option-1");
-    var option2count = responseCount(qResponseArray, "option-2");
-    var option3count = responseCount(qResponseArray, "option-3");
-
-    var option1Array = ["option 1", option1count];
-    var option2Array = ["option 2", option2count];
-    var option3Array = ["option 3", option3count];
-    var theWinnerIs = determineDominantResponse(option1Array, option2Array, option3Array);
-
-    var outputDisplay = "";
-    var secondaryDisplay = "";
-    if (theWinnerIs[0] === "option 1") {
-      outputDisplay = "rails";
-
-    } else if (theWinnerIs[0] === "option 2") {
-      outputDisplay = "react";
-    } else if (theWinnerIs[0] === "option 3") {
-      outputDisplay = "csharp";
-    };
-
-    if (theWinnerIs[1] === "option 1") {
-      secondaryDisplay = "rails";
-    } else if (theWinnerIs[1] === "option 2") {
-      secondaryDisplay = "react";
-    } else if (theWinnerIs[1] === "option 3") {
-      secondaryDisplay = "csharp";
-    } else {
-      secondaryDisplay = "none"
-    };
-
-    =-=-=-=-=-=-=  OLD  =-=-=-=-=-=-=-=
-
-    */
-
-    var theWinnerIs = pickTwo(qResponseArray);
+    var theWinnerIs = pickTwo(userResponseArray);
     var outputDisplay;
     var secondaryDisplay;
-    if (theWinnerIs[0] === "option-1") {
+    if (theWinnerIs[0] === "rails") {
       outputDisplay = "rails";
-    } else if (theWinnerIs[0] === "option-2") {
+    } else if (theWinnerIs[0] === "react") {
       outputDisplay = "react";
-    } else if (theWinnerIs[0] === "option-3") {
+    } else if (theWinnerIs[0] === "cSharp") {
       outputDisplay = "csharp";
     };
-    if (theWinnerIs[1] === "option-1") {
+    if (theWinnerIs[1] === "rails") {
       secondaryDisplay = "rails";
-    } else if (theWinnerIs[1] === "option-2") {
+    } else if (theWinnerIs[1] === "react") {
       secondaryDisplay = "react";
-    } else if (theWinnerIs[1] === "option-3") {
+    } else if (theWinnerIs[1] === "cSharp") {
       secondaryDisplay = "csharp";
     } else {
       secondaryDisplay = "none";
