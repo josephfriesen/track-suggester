@@ -16,9 +16,9 @@ var responseCount = function(stringArray, stringToFind) {
       count = count + 1;
     }
     n = n + 1;
-  };
+  }
   return count;
-};
+}
 
 /* Helper function, returns a random integer from 0 to n-1. */
 var coinFlip = function(n) {
@@ -41,21 +41,21 @@ var determineDominantResponse = function(array1, array2, array3) {
       return [array1[0], array2[0]];
     } else {
       return [array2[0], array1[0]];
-    };
+    }
   } else if (array1[1] === 2 && array3[1] === 2) {
     if (rand === 0) {
       return [array1[0], array3[0]];
     } else {
       return [array3[0], array1[0]];
-    };
+    }
   } else if (array2[1] === 2 && array3[1] === 2) {
     if (rand === 0) {
       return [array2[0], array3[0]];
     } else {
       return [array3[0], array2[0]];
-    };
-  };
-};
+    }
+  }
+}
 
 
 
@@ -76,14 +76,14 @@ var createUniqueArray = function(array) {
     for (m = 0; m < uniqueArray.length; m++) {
       if (currentItem === uniqueArray[m]) {
         unique = 0;
-      };
-    };
+      }
+    }
     if (unique == 1) {
       uniqueArray.push(currentItem);
-    };
-  };
+    }
+  }
   return uniqueArray;
-};
+}
 
 /* Given an array, returns an array that lists the number of times each unique entry in that array appears in the array. To be used in tandem with function createUniqueArray, i.e. the frequency with which the ith entry in the array returned by createUniqueArray appears in the given array is given by the ith entry in the array returned by createFrequencyArray.
   Ex. let hi = ["1", "2", "2", "4"]. Call unique = createUniqueArray(hi) = ["1", "2", "4"]. Then createFrequencyArray(hi) = [1, 2, 1], meaning "1" appears in hi once, "2" appears in hi twice, and "4" appears in hi once. */
@@ -101,11 +101,11 @@ var createFrequencyArray = function(array) {
       if (currentItem === array[m]) {
         count = count + 1;
       }
-    };
+    }
     freqArray[n] = count;
-  };
+  }
   return freqArray;
-};
+}
 
 /* Given an array, returns an array listing those elements which appear with the greatest frequency; an array with a single element if one element appears in the given array more than any other, an array with multiple elements if more than one element appear with the maximal frequency.
   Ex. let hi = ["1", "2", "2", "3", "5", "1"]. Then collectMaxElements(hi) returns the array ["1", "2"], "1" and "2" having both appeared twice in the given array, more frequently than the other elements. */
@@ -118,10 +118,10 @@ var collectMaxElements = function(array) {
   for (n = 0; n < uniqueArray.length; n++) {
     if (frequencyArray[n] == max) {
       maxValuesArray.push(uniqueArray[n]);
-    };
-  };
+    }
+  }
   return maxValuesArray;
-};
+}
 
 /* Given an array, will return a two element array consisting of two randomly chosen maximally occuring elements of that array (or, if only one element appears maximally, will return an array with that element in the first position and the string "none" in the second position).
   Ex: let hi = ["1", "2", "2", "3", "3", "4", "4"]. then pickTwo(hi) will return an array of two elements randomly chosen from the elements "2", "3", "4", such as ["2", "4"] or ["4", "3"].*/
@@ -139,12 +139,12 @@ var pickTwo = function(array) {
     secondChoice = coinFlip(len);
     while (firstChoice == secondChoice) {
       secondChoice = coinFlip(len);
-    };
+    }
     secondChoiceElement = maxElements[secondChoice];
     result = [firstChoiceElement, secondChoiceElement];
-  };
+  }
   return result;
-};
+}
 
 
 
@@ -181,7 +181,7 @@ $(document).ready(function() {
       outputDisplay = "react";
     } else if (theWinnerIs[0] === "cSharp") {
       outputDisplay = "csharp";
-    };
+    }
     if (theWinnerIs[1] === "rails") {
       secondaryDisplay = "rails";
     } else if (theWinnerIs[1] === "react") {
@@ -190,7 +190,7 @@ $(document).ready(function() {
       secondaryDisplay = "csharp";
     } else {
       secondaryDisplay = "none";
-    };
+    }
 
     if (outputDisplay === "rails") {
       $("#rails").slideDown();
@@ -204,7 +204,7 @@ $(document).ready(function() {
       $("#rails").slideUp();
       $("#react").slideUp();
       $("#csharp").slideDown();
-    };
+    }
 
     if (secondaryDisplay === "rails") {
       $("#rails-secondary").slideDown();
@@ -222,8 +222,8 @@ $(document).ready(function() {
       $("#rails-secondary").slideUp();
       $("#react-secondary").slideUp();
       $("#csharp-secondary").slideUp();
-    };
+    }
 
 
-  });
-});
+  })
+})
